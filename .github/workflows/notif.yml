@@ -27,7 +27,7 @@ jobs:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
         # Enables markdown styling so you can click the commit hashes and links
-                format: markdown
+        format: markdown
                 message: |
                   *New Commit Pushed!* 🚀
 
