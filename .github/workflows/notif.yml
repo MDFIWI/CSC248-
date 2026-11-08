@@ -26,16 +26,15 @@ jobs:
       with:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
-        # Enables markdown styling so you can click the commit hashes and links
         format: markdown
-                message: |
-                  *New Commit Pushed!* 🚀
+        message: |
+          *New Commit Pushed!* 🚀
 
-                  *Repository:* `${{ github.repository }}`
-                  *Branch:* `${{ github.ref_name }}`
-                  *Author:* ${{ github.actor }}
+          *Repository:* `${{ github.repository }}`
+          *Branch:* `${{ github.ref_name }}`
+          *Author:* ${{ github.actor }}
 
-                  *Commit Message:*
-                  > ${{ github.event.head_commit.message }}
+          *Commit Message:*
+          > ${{ github.event.head_commit.message }}
 
-                  [View Commit Changes](${{ github.event.head_commit.url }})
+          [View Commit Changes](${{ github.event.head_commit.url }})
