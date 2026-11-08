@@ -19,3 +19,14 @@ jobs:
         SLACK_USERNAME: BotCI
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
         SLACK_MESSAGE: "This is your custom message."
+
+    # 2. TELEGRAM NOTIFICATION
+    - name: Notification Telegram
+      uses: appleboy/telegram-action@master
+      with:
+        to: ${{ secrets.TELEGRAM_TO }}
+        token: ${{ secrets.TELEGRAM_TOKEN }}
+        message: |
+          Hello Team! 🚀
+          The CI workflow was triggered by ${{ github.actor }} on branch ${{ github.ref_name }}.
+          Status: Success!
