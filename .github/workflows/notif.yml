@@ -26,7 +26,16 @@ jobs:
       with:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
-        message: |
-          Hello Team! 🚀
-          The CI workflow was triggered by ${{ github.actor }} on branch ${{ github.ref_name }}.
-          Status: Success!
+        # Enables markdown styling so you can click the commit hashes and links
+                format: markdown
+                message: |
+                  *New Commit Pushed!* 🚀
+
+                  *Repository:* `${{ github.repository }}`
+                  *Branch:* `${{ github.ref_name }}`
+                  *Author:* ${{ github.actor }}
+
+                  *Commit Message:*
+                  > ${{ github.event.head_commit.message }}
+
+                  [View Commit Changes](${{ github.event.head_commit.url }})
